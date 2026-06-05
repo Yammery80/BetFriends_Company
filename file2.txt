@@ -1,2 +1,3 @@
 te dcoukento es con el editor Vim (editado)
 Para sair debe presionar Esc y luego escribir :wq
+Una nueva linea a file2
