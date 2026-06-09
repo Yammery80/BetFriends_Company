@@ -1,3 +1,0 @@
-Ahora editamos con Vim
-Este editor trabaja con comandos
-Para Salir Presiona Esc y escribe :wq
