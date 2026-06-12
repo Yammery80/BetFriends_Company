@@ -1,0 +1,82 @@
+name: "🐛 Reporte de Bug"
+description: Informa sobre un error o comportamiento inesperado en la aplicación.
+title: "[BUG]: <resumen breve del problema>"
+labels: ["bug", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Gracias por tomarte el tiempo de reportar este problema. Por favor, completa la siguiente información para ayudarnos a identificar y solucionar el bug lo antes posible.
+
+  - type: textarea
+    id: description
+    attributes:
+      label: "📌 Descripción del Bug"
+      description: Proporciona una descripción clara y concisa de cuál es el error.
+      placeholder: Al intentar hacer clic en el botón de guardar, la aplicación se congela...
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction-steps
+    attributes:
+      label: "🔄 Pasos para Reproducir"
+      description: Indica los pasos exactos que debemos seguir para recrear el problema.
+      placeholder: |
+        1. Ir a la pestaña 'Configuración'
+        2. Cambiar el idioma a 'Español'
+        3. Hacer clic en 'Guardar Cambios'
+        4. Ver el error en la consola
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected-behavior
+    attributes:
+      label: "🎯 Comportamiento Esperado"
+      description: Qué es lo que debería haber ocurrido si todo funcionara correctamente.
+      placeholder: Los cambios deberían guardarse y mostrarse un mensaje de éxito en verde.
+    validations:
+      required: true
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: "🎨 Capturas de Pantalla / Grabaciones"
+      description: Si aplica, añade imágenes o un video corto donde se observe el comportamiento erróneo (puedes arrastrar y soltar archivos aquí).
+      placeholder: Adjunta tus archivos multimedia aquí...
+    validations:
+      required: false
+
+  - type: dropdown
+    id: environment-platform
+    attributes:
+      label: "💻 Entorno / Sistema Operativo"
+      description: ¿En qué sistema operativo o plataforma experimentaste el problema?
+      options:
+        - Windows
+        - macOS
+        - Linux
+        - Android
+        - iOS
+        - Otro (especificar en las notas)
+    validations:
+      required: true
+
+  - type: input
+    id: browser-version
+    attributes:
+      label: "🌐 Navegador o Versión de la App"
+      description: Si es una web, indica el navegador (ej. Chrome 124). Si es una app, indica la versión (ej. v1.4.2).
+      placeholder: Chrome v124.0.5 / App v2.1.0
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: "📝 Contexto Adicional"
+      description: Cualquier otro detalle técnico, logs de la consola, trazas de error o información relevante.
+      placeholder: Error de red detectado: status code 500 al llamar al endpoint /api/v1/settings...
+    validations:
+      required: false
