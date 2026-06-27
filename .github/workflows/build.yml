@@ -11,7 +11,6 @@ on:
 
 jobs:
   build:
-    name: Verificar compilación
     runs-on: ubuntu-latest
 
     steps:
@@ -29,6 +28,3 @@ jobs:
 
       - name: Construir proyecto
         run: npm run build
-
-      - name: Build completado
-        run: echo "✅ La aplicación React + Vite compiló correctamente."
