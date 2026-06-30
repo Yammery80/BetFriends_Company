@@ -1,0 +1,30 @@
+name: Feature Testing
+
+# 1. ¿Cuándo se ejecuta? 
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - 'feature/**' # Se activa al subir código a cualquier rama de "feature"
+
+# 2. ¿Qué tareas realiza?
+jobs:
+  run-tests:
+    runs-on: ubuntu-latest # Entorno virtual
+    
+    steps:
+      - name: Clonar el código
+        uses: actions/checkout@v3
+        
+      - name: Configurar Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          
+      - name: Instalar dependencias
+        run: npm ci
+        
+      - name: Ejecutar pruebas
+        run: npm run test
