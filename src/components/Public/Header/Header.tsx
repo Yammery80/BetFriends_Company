@@ -86,7 +86,7 @@ export default function Header() {
             <Diamond size={16} strokeWidth={1.5} />
           </span>
           <span>
-            Bet<em style={{ color: 'var(--bf-gold)', fontStyle: 'italic', fontWeight: 500 }}>Friends</em>
+            Friends<em style={{ color: 'var(--bf-gold)', fontStyle: 'italic', fontWeight: 500 }}>Bet</em>
           </span>
         </Link>
 
