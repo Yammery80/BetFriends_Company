@@ -5,7 +5,7 @@ import path from 'node:path';
 export default defineConfig({
   plugins: [react()],
 
-  base: '/FriendsBet/src/',
+  base: '/FriendsBet/',
 
   resolve: {
     alias: {
