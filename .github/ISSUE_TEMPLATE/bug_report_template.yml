@@ -77,6 +77,6 @@ body:
     attributes:
       label: "📝 Contexto Adicional"
       description: Cualquier otro detalle técnico, logs de la consola, trazas de error o información relevante.
-      placeholder: Error de red detectado: status code 500 al llamar al endpoint /api/v1/settings...
+      placeholder: 
     validations:
       required: false
