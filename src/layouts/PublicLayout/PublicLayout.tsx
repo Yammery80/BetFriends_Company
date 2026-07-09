@@ -11,7 +11,7 @@
 import { Outlet, useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
 import Header from '../../components/Public/Header/Header';
-import Footer from '../../components/Public/Footer/Footer';
+
 
 export default function PublicLayout() {
   const { pathname } = useLocation();
@@ -35,11 +35,10 @@ export default function PublicLayout() {
       <Header />
       <main
         data-testid="public-main"
-        style={{ flex: 1, paddingTop: '96px' }}
+        style={{ flex: 1  }}
       >
         <Outlet />
       </main>
-      <Footer />
     </div>
   );
 }
