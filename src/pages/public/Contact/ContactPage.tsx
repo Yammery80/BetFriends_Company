@@ -7,6 +7,7 @@
 
 import { useState, FormEvent } from 'react';
 import { Mail, MapPin, Phone, Send, Check } from 'lucide-react';
+import emailjs from '@emailjs/browser';
 
 export default function ContactPage() {
   const [status, setStatus] = useState<'idle' | 'sending' | 'sent'>('idle');
@@ -17,16 +18,33 @@ export default function ContactPage() {
     mensaje: '',
   });
 
-  function handleSubmit(e: FormEvent) {
-    e.preventDefault();
-    setStatus('sending');
-    // Solo UI: simulamos un pequeño delay para feedback visual
-    setTimeout(() => {
+function handleSubmit(e: FormEvent) {
+  e.preventDefault();
+  setStatus('sending');
+
+  emailjs
+    .send(
+      import.meta.env.VITE_EMAILJS_SERVICE_ID,
+      import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+      {
+        nombre: form.nombre,
+        email: form.email,
+        asunto: form.asunto,
+        mensaje: form.mensaje,
+      },
+      { publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY }
+    )
+    .then(() => {
       setStatus('sent');
       setForm({ nombre: '', email: '', asunto: '', mensaje: '' });
-      setTimeout(() => setStatus('idle'), 3500);
-    }, 900);
-  }
+      setTimeout(() => setStatus('idle'), 4000);
+    })
+    .catch((err) => {
+      console.error('EmailJS error:', err);
+      setStatus('idle');
+      alert('Ocurrió un error al enviar el mensaje. Intenta de nuevo.');
+    });
+}
 
   return (
     <div data-testid="contact-page">
