@@ -1,215 +1,113 @@
-// ============================================================
-// components/public/Header.tsx
-// ------------------------------------------------------------
-// Encabezado fijo con:
-//   - Marca BetFriends (Playfair Display + acento dorado)
-//   - Navegación pública: Inicio · Nosotros · Contacto
-//   - CTA "Iniciar sesión" (botón dorado)
-//   - Menú hamburguesa para móvil
-// ============================================================
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import logo from '../../../assets/img/betfriends logo 1.png';
+import { HiOutlineUser, HiMenu,HiX } from "react-icons/hi"
 
-import { useEffect, useState } from 'react';
-import { NavLink, Link, useLocation } from 'react-router-dom';
-import { Menu, X, Diamond } from 'lucide-react';
 
-const NAV_ITEMS = [
-  { to: '/', label: 'Inicio', testId: 'nav-home' },
-  { to: '/nosotros', label: 'Nosotros', testId: 'nav-about' },
-  { to: '/contacto', label: 'Contacto', testId: 'nav-contact' },
-];
-
-export default function Header() {
-  const [open, setOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-  const { pathname } = useLocation();
-
-  useEffect(() => setOpen(false), [pathname]);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 12);
-    onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
-
-  const headerStyle: React.CSSProperties = {
-    position: 'fixed',
-    inset: '0 0 auto 0',
-    zIndex: 50,
-    borderBottom: `1px solid ${scrolled ? 'rgba(212,175,55,0.15)' : 'rgba(255,255,255,0.05)'}`,
-    background: scrolled ? 'rgba(10,13,16,0.85)' : 'rgba(10,13,16,0.55)',
-    backdropFilter: 'blur(22px) saturate(140%)',
-    WebkitBackdropFilter: 'blur(22px) saturate(140%)',
-    transition: 'all 0.35s cubic-bezier(.2,.7,.2,1)',
-  };
-
+function Navbar(){
+  const [isOpen, setIsOpen] = useState(false);
   return (
-    <header data-testid="public-header" style={headerStyle}>
-      <div
-        className="bf-container"
-        style={{
-          height: 84,
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-        }}
+    <nav className="flex justify-between items-center px-5 bg-black/20 backdrop-blur-lg sticky top-0 z-50">
+
+{/* logo */}
+    <div className="flex items-center  text-2xl font-bold">
+        <img src={logo}  className="h-16 w-16 " />
+        <span className="text-[#fafaf8]">Bet</span><span className="text-[#632ab4] hover:[text-shadow:0_0_15px_rgba(168,85,247,0.6)]">Friends</span>
+    </div>
+
+ {/* navegación */}
+    <div className="flex items-center gap-4">
+    <ul className="hidden md:flex flex-row items-center gap-10 bg-transparent rounded-full px-8 py-3 m-0 list-none shadow-inner">
+      <li>
+        <Link to="/" className="relative px-6 py-2 space-x-3 bg-black text-white font-semibold rounded-full border-2 border-purple-500 hover:border-purple-400 transition-all duration-300 hover:shadow-[0_0_20px_10px_rgba(168,85,247,0.6)] active:scale-95 active:shadow-[0_0_10px_5px_rgba(168,85,247,0.4)] group inline-flex">Inicio</Link>
+      </li>
+      <li>
+        <Link to="/nosotros" className=" relative px-6 py-2 space-x-3 bg-black text-white font-semibold rounded-full border-2 border-purple-500 hover:border-purple-400 transition-all duration-300 hover:shadow-[0_0_20px_10px_rgba(168,85,247,0.6)] active:scale-95 active:shadow-[0_0_10px_5px_rgba(168,85,247,0.4)] group inline-flex">Acerca de</Link>
+      </li>
+      <li>
+        <Link to="/contacto" className=" relative px-6 py-2 space-x-3 bg-black text-white font-semibold rounded-full border-2 border-purple-500 hover:border-purple-400 transition-all duration-300 hover:shadow-[0_0_20px_10px_rgba(168,85,247,0.6)] active:scale-95 active:shadow-[0_0_1０px_5px_rgba(168,85,247,0.4)] group inline-flex">Contacto</Link>
+      </li>
+    </ul>
+    </div>
+
+    {/* boton login */}
+
+    <div className="flex items-center gap-4">
+      <div className="md:flex shrink-0 h-11 w-11 rounded-full backdrop-blur-lg border border-purple-500 bg-linear-to-tr from-black/60 to-black/40 shadow-lg hover:shadow-2xl hover:shadow-white/20 hover:scale-110 hover:rotate-3 active:scale-95 active:rotate-0 transition-all duration-300 ease-out cursor-pointer hover:border-purple-500 hover:bg-linear-to-tr hover:from-purple-500 hover:to-black/40 group relative overflow-hidden right-0">
+      <div className=" inset-0 bg-linear-to-r from-transparent via-purple-500 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></div>
+      <Link to="/login" className="relative z-10 items-center flex justify-center w-full h-full">
+      <HiOutlineUser className="text-white text-xl" />
+      </Link>
+    </div>
+
+
+{/* Button empezemos */}
+    <button className=" hidden md:flex relative shrink-0 bg-[#632ab4] text-white font-medium text-[17px] px-13 py-[0.35em] pl-5 h-[2.8em] rounded-[0.9em] items-center overflow-hidden cursor-pointer shadow-[inset_0_0_1.6em_-0.6em_#714da6] group">
+      <span className="mr-10">Empecemos</span>
+  <div
+    className="absolute right-[0.3em] bg-white h-[2.2em] w-[2.2em] rounded-[0.7em] flex items-center justify-center transition-all duration-300 group-hover:w-[calc(100%-0.6em)] shadow-[0.1em_0.1em_0.6em_0.2em_#7b52b9] active:scale-95"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 25 24"
+      width="24"
+      height="24"
+      className="w-[1.1em] transition-transform duration-300 text-[#632ab4] group-hover:translate-x-[0.1em]"
+    >
+      <path fill="none" d="M0 0h24v24H0z"></path>
+      <path
+        fill="currentColor"
+        d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z"
+      ></path>
+    </svg>
+  </div>
+</button>
+
+
+  {(isOpen) && (
+    <div className="md:hidden absolute top-20  right-0 mt-4 flex flex-col gap-4 bg-black/80 backdrop-blur-2xl p-6 rounded-2xl border border-purple-500 shadow-2xl">
+  <Link
+  to="/"
+    className="text-white font font-medium hover:text-purple-500 py-2"
+      onClick={() => setIsOpen(false)}
       >
-        {/* -------- Marca -------- */}
-        <Link
-          to="/"
-          data-testid="brand-logo"
-          style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: 12,
-            fontFamily: 'var(--bf-font-display)',
-            fontSize: 24,
-            fontWeight: 600,
-            letterSpacing: '-0.01em',
-          }}
-        >
-          <span
-            aria-hidden
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              width: 34,
-              height: 34,
-              borderRadius: 6,
-              border: '1px solid rgba(212,175,55,0.4)',
-              background:
-                'linear-gradient(140deg, rgba(212,175,55,0.15), rgba(212,175,55,0.02))',
-              color: 'var(--bf-gold)',
-            }}
-          >
-            <Diamond size={16} strokeWidth={1.5} />
-          </span>
-          <span>
-            Friends<em style={{ color: 'var(--bf-gold)', fontStyle: 'italic', fontWeight: 500 }}>Bet</em>
-          </span>
-        </Link>
+        Inicio
+    </Link>
+    <Link
+    to="/nosotros"
+      className="text-white font font-medium hover:text-purple-500 py-2"
+      onClick={() => setIsOpen(false)}
+    >
+      Nosotros
+    </Link>
+    <Link
+    to="/contacto"
+      className="text-white font font-medium hover:text-purple-500 py-2"
+      onClick={() => setIsOpen(false)}
+    >
+      Contacto
+    </Link>
+    <Link
+    to="/login"
+      className="text-white font font-medium hover:text-purple-500 py-2"
+      onClick={() => setIsOpen(false)}
+    >
+      Empecemos
+    </Link>
+  </div>)}
 
-        {/* -------- Nav desktop -------- */}
-        <nav
-          data-testid="nav-desktop"
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: 44,
-          }}
-          className="bf-nav-desktop"
-        >
-          {NAV_ITEMS.map((item) => (
-            <NavLink
-              key={item.to}
-              to={item.to}
-              end={item.to === '/'}
-              data-testid={item.testId}
-              style={({ isActive }: { isActive: boolean }) => ({
-                fontSize: 13,
-                fontWeight: 500,
-                letterSpacing: '0.14em',
-                textTransform: 'uppercase',
-                color: isActive ? 'var(--bf-gold)' : 'var(--bf-text-dim)',
-                transition: 'color 0.25s ease',
-                position: 'relative',
-                paddingBottom: 6,
-              })}
-            >
-              {({ isActive }: { isActive: boolean }) => (
-                <>
-                  {item.label}
-                  {isActive && (
-                    <span
-                      style={{
-                        position: 'absolute',
-                        left: 0,
-                        right: 0,
-                        bottom: 0,
-                        height: 1,
-                        background: 'var(--bf-gold)',
-                      }}
-                    />
-                  )}
-                </>
-              )}
-            </NavLink>
-          ))}
-        </nav>
+  {/* Menú Hamburgesa Mobile */}
+    <button
+      onClick={() => setIsOpen(!isOpen)}
+      className="text-white text-3xl md:hidden focus:outline-none"
+      >
+      {isOpen ? <HiX /> : <HiMenu/>}
+    </button>
 
-        {/* -------- CTA + móvil -------- */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-          <Link
-            to="/login"
-            data-testid="header-login-cta"
-            className="bf-btn bf-btn-primary"
-            style={{ padding: '11px 22px', fontSize: 12 }}
-          >
-            Iniciar sesión
-          </Link>
+    </div>
 
-          <button
-            data-testid="mobile-menu-toggle"
-            aria-label="Abrir menú"
-            onClick={() => setOpen((v) => !v)}
-            className="bf-mobile-only"
-            style={{
-              width: 42,
-              height: 42,
-              display: 'inline-flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              color: 'var(--bf-text)',
-              border: '1px solid var(--bf-border)',
-              borderRadius: 6,
-            }}
-          >
-            {open ? <X size={18} /> : <Menu size={18} />}
-          </button>
-        </div>
-      </div>
-
-      {/* -------- Nav móvil -------- */}
-      {open && (
-        <div
-          data-testid="nav-mobile"
-          style={{
-            borderTop: '1px solid var(--bf-border)',
-            background: 'rgba(10,13,16,0.98)',
-            padding: '20px 24px 28px',
-          }}
-        >
-          {NAV_ITEMS.map((item) => (
-            <NavLink
-              key={item.to}
-              to={item.to}
-              end={item.to === '/'}
-              data-testid={`${item.testId}-mobile`}
-              style={({ isActive }: { isActive: boolean }) => ({
-                display: 'block',
-                padding: '14px 0',
-                fontSize: 15,
-                fontWeight: 400,
-                letterSpacing: '0.05em',
-                color: isActive ? 'var(--bf-gold)' : 'var(--bf-text)',
-                borderBottom: '1px solid rgba(255,255,255,0.05)',
-              })}
-            >
-              {item.label}
-            </NavLink>
-          ))}
-        </div>
-      )}
-
-      <style>{`
-        .bf-nav-desktop { display: flex; }
-        .bf-mobile-only { display: none; }
-        @media (max-width: 900px) {
-          .bf-nav-desktop { display: none !important; }
-          .bf-mobile-only { display: inline-flex !important; }
-        }
-      `}</style>
-    </header>
+    </nav>
   );
 }
+
+export default Navbar;
