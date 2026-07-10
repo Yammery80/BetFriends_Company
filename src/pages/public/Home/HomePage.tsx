@@ -23,7 +23,7 @@ import {
 } from 'lucide-react';
 
 const HERO_IMG =
-  'https://images.unsplash.com/photo-1775642679594-89bb4b78e26e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxmcmllbmRzJTIwY2VsZWJyYXRpbmclMjBzcG9ydHN8ZW58MHx8fHwxNzgyODY3ODM4fDA&ixlib=rb-4.1.0&q=85';
+  'https://assets.goal.com/images/v3/bltcbcc5a45e54562f0/Rise%20of%20Quinones.jpg?auto=webp&format=pjpg&width=3840&quality=60';
 
 const CARDS_IMG =
   'https://images.unsplash.com/photo-1636583133884-fbefc7ac3fb3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1OTN8MHwxfHNlYXJjaHwyfHxjYXNpbm8lMjBjYXJkcyUyMGVsZWdhbnR8ZW58MHx8fHwxNzgyODY3ODM5fDA&ixlib=rb-4.1.0&q=85';
@@ -97,7 +97,7 @@ function HeroSection() {
           >
             Apuesta con tus amigos.
             <br />
-            <em>Gana el respeto</em> del grupo.
+            <em className="hover:[text-shadow:0_0_15px_rgba(168,85,247,0.6)]">Gana el respeto</em> del grupo.
           </h1>
 
           <p
