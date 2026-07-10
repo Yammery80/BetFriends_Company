@@ -105,7 +105,7 @@ function handleSubmit(e: FormEvent) {
                   height: 180,
                   borderRadius: '50%',
                   background:
-                    'radial-gradient(circle, rgba(212,175,55,0.25), transparent 70%)',
+                    'radial-gradient(circle, rgba(139, 92, 246, 0.25), transparent 70%)',
                 }}
               />
               <h2
@@ -119,19 +119,13 @@ function handleSubmit(e: FormEvent) {
                 <ContactRow
                   Icon={Mail}
                   label="Escríbenos"
-                  value="hola@betfriends.club"
+                  value="betfriendcompany@gmail.com"
                   testId="contact-email"
-                />
-                <ContactRow
-                  Icon={Phone}
-                  label="Llámanos"
-                  value="+52 (55) 4482 · 1122"
-                  testId="contact-phone"
                 />
                 <ContactRow
                   Icon={MapPin}
                   label="Estamos en"
-                  value="Ciudad de México · Barcelona · Bogotá"
+                  value="El Carmen Xalpatlahuaya · Huamantla · Tlaxcala · México"
                   testId="contact-location"
                 />
               </div>
@@ -267,7 +261,7 @@ function handleSubmit(e: FormEvent) {
                   data-testid="contact-success"
                   style={{
                     marginTop: 8,
-                    color: 'var(--bf-gold)',
+                    color: 'var(--bf-text-dim)',
                     fontSize: 14,
                     letterSpacing: '0.04em',
                   }}

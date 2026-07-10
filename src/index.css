@@ -66,9 +66,9 @@ body {
   color: var(--bf-text);
   background-color: var(--bf-bg);
   background-image:
-    radial-gradient(ellipse 80% 60% at 8% -10%, rgba(11, 66, 40, 0.35), transparent 60%),
-    radial-gradient(ellipse 60% 50% at 100% 0%, rgba(191, 55, 212, 0.08), transparent 60%),
-    radial-gradient(ellipse 90% 60% at 50% 120%, rgba(128, 0, 32, 0.15), transparent 60%);
+    radial-gradient(ellipse 80% 60% at 8% -10%, rgba(88, 28, 135, 0.35), transparent 60%),
+    radial-gradient(ellipse 60% 50% at 100% 0%, rgba(168, 85, 247, 0.18), transparent 60%),
+    radial-gradient(ellipse 90% 60% at 50% 120%, rgba(59, 7, 100, 0.25), transparent 60%);
   background-attachment: fixed;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

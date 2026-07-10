@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 import { Handshake, ShieldCheck, HeartHandshake, Sparkles } from 'lucide-react';
 
 const EMERALD_TEXTURE =
-  'https://images.unsplash.com/photo-1601370690183-1c7796ecec61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMzl8MHwxfHNlYXJjaHwyfHxlbWVyYWxkJTIwZ3JlZW4lMjB2ZWx2ZXQlMjB0ZXh0dXJlfGVufDB8fHx8MTc4Mjg2Nzg1OXww&ixlib=rb-4.1.0&q=85';
+  'https://images.unsplash.com/photo-1557682250-33bd709cbe85?auto=format&fit=crop&w=1200&q=85';
 
 export default function AboutPage() {
   return (
@@ -64,7 +64,7 @@ function AboutHero() {
             marginBottom: 32,
           }}
         >
-          Nacimos porque apostar entre amigos <em>merecía</em> algo más elegante.
+          Nacimos porque apostar entre amigos <em>merecía</em> algo más emocionante.
         </h1>
         <p
           className="bf-anim-up bf-delay-2"
@@ -110,23 +110,23 @@ function AboutStory() {
           </div>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
-            <p style={{ color: 'var(--bf-text-dim)', fontSize: 17, lineHeight: 1.85 }}>
-              Los mejores momentos con amigos no siempre pasan en el estadio o
+            <p style={{ color: 'var(--bf-text-dim)', fontSize: 17, lineHeight: 1.85, textAlign: 'justify' }}>
+              Los mejores momentos con amigos no siempre pasan en el círculo o
               frente a la pantalla — pasan en el debate previo, en la
               apuesta ridícula que nadie olvida, en el ganador que lo
               presumirá durante meses. <span style={{ color: 'var(--bf-text)' }}>Eso es lo que queremos amplificar</span>.
             </p>
-            <p style={{ color: 'var(--bf-text-dim)', fontSize: 17, lineHeight: 1.85 }}>
+            <p style={{ color: 'var(--bf-text-dim)', fontSize: 17, lineHeight: 1.85, textAlign: 'justify' }}>
               Diseñamos BetFriends como un club privado digital: espacio
-              curado, estética premium, comunidad selectiva. Los usuarios no
-              apuestan contra la casa; apuestan entre sí, con reglas propias,
+              curado, estética premium, comunidad selectiva.<span style={{ color: 'var(--bf-text)' }}> Tú no
+              apuestas contra la casa; apuestas con tu gente</span>, con sus propias reglas,
               en salas invitadas donde el único trofeo real es la reputación
               dentro del grupo.
             </p>
-            <p style={{ color: 'var(--bf-text-dim)', fontSize: 17, lineHeight: 1.85 }}>
+            <p style={{ color: 'var(--bf-text-dim)', fontSize: 17, lineHeight: 1.85, textAlign: 'justify' }}>
               Deportes, entretenimiento, competencias virales — cualquier
               cosa puede convertirse en un reto. La chispa social está en el
-              pronóstico; la elegancia está en cómo lo vives.
+              pronóstico;<span style={{ color: 'var(--bf-text)' }}> la pasión está en cómo lo vives.</span>
             </p>
           </div>
         </div>
@@ -162,7 +162,7 @@ function ValuesGrid() {
     {
       Icon: Sparkles,
       title: 'Estética curada',
-      desc: 'Cada pantalla se siente como un salón exclusivo: elegante, cálido, tuyo.',
+      desc: 'Cada pantalla se siente como un salón exclusivo: un espacio desafiante, estratégico y completamente suyo.',
       testId: 'value-design',
     },
     {
@@ -269,9 +269,9 @@ function AboutTeam() {
             <p style={{ color: 'var(--bf-text-dim)', fontSize: 17, lineHeight: 1.85 }}>
               BetFriends nace como proyecto universitario, pero está pensado y
               construido con estándares reales: arquitectura modular,
-              diseño intencional y una obsesión por los detalles. Un pequeño
-              equipo, muchas conversaciones a la 1 am y la convicción de que
-              apostar entre amigos merece ser bonito.
+              diseño intencional y una obsesión por los detalles. Un equipo
+              selecto, muchas conversaciones a la 1 am y la convicción de que
+              apostar entre amigos merece ser llevado a otro nivel.
             </p>
           </div>
 
@@ -339,7 +339,7 @@ function AboutCta() {
             padding: '60px 40px',
             textAlign: 'center',
             border: '1px solid var(--bf-border-hi)',
-            background: 'linear-gradient(140deg, rgba(128,0,32,0.15), rgba(10,13,16,0.9))',
+            background: 'linear-gradient(140deg, rgba(88,28,135,0.15), rgba(88,28,135,0.04))',
           }}
         >
           <h3

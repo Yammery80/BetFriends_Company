@@ -23,13 +23,13 @@ import {
 } from 'lucide-react';
 
 const HERO_IMG =
-  'https://assets.goal.com/images/v3/bltcbcc5a45e54562f0/Rise%20of%20Quinones.jpg?auto=webp&format=pjpg&width=3840&quality=60';
+  'https://images.openai.com/static-rsc-4/wV_q6kBys5bCwA2usNfcLG23T6AbBAugAZQS2gX0XBmyYZFOyEcOe4oqkge0zMT999v9EyagapD3711Q_ztIAbJ34i1HNC6BOrG0H5zvAewizPVO-XD-0Z_TdE55zhDUHACfOfovGhfMNXyXSIudb42qgGM-WSKzwioPYkfrBeM?purpose=inline';
 
 const CARDS_IMG =
-  'https://images.unsplash.com/photo-1636583133884-fbefc7ac3fb3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1OTN8MHwxfHNlYXJjaHwyfHxjYXNpbm8lMjBjYXJkcyUyMGVsZWdhbnR8ZW58MHx8fHwxNzgyODY3ODM5fDA&ixlib=rb-4.1.0&q=85';
+  'https://images.openai.com/static-rsc-4/KEKhCuNmoVOheQfD6j8yy2Yyu9W9ok_gmPrvtIjFY5c8aDDQikhHocVbBS1ZJAtAToZPj78gquHMioiK2-RbRNCfc4QuKhpgzRbgDmKQgo87SKY8_MM5EsY1KT2SAqMkS5N_D5tdI1Ze2MDuAiODkPeq1GgkIw-qDFrWW-wXXPg?purpose=inline';
 
 const EMERALD_TEXTURE =
-  'https://images.unsplash.com/photo-1601370690183-1c7796ecec61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMzl8MHwxfHNlYXJjaHwyfHxlbWVyYWxkJTIwZ3JlZW4lMjB2ZWx2ZXQlMjB0ZXh0dXJlfGVufDB8fHx8MTc4Mjg2Nzg1OXww&ixlib=rb-4.1.0&q=85';
+  'https://images.unsplash.com/photo-1557682250-33bd709cbe85?auto=format&fit=crop&w=1200&q=85';
 
 export default function HomePage() {
   return (
@@ -85,7 +85,7 @@ function HeroSection() {
         style={{ position: 'relative', zIndex: 2, paddingTop: 40, paddingBottom: 80 }}
       >
         <div style={{ maxWidth: 720 }}>
-          <span className="bf-eyebrow bf-anim-fade">Club social · Apuestas premium</span>
+          <span className="bf-eyebrow bf-anim-fade hover:[text-shadow:0_0_15px_rgba(168,85,247,0.6)]">Predicciones · Comunidad · Competencia</span>
 
           <h1
             className="bf-display bf-anim-up bf-delay-1"
@@ -110,27 +110,27 @@ function HeroSection() {
               marginBottom: 40,
             }}
           >
-            BetFriends convierte cada partido, cada trivia y cada evento en una
-            competencia entre amigos. Sin bancos, sin dinero real —{' '}
-            <span style={{ color: 'var(--bf-text)' }}>solo orgullo, retos y una comunidad elegante</span>.
+            Convierte cualquier predicción en una compentencia. Crea apuestas privadas o
+             únete a desafíos públicos. Sin bancos, sin dinero real —{' '}
+            <span style={{ color: 'var(--bf-text)' }}>Demuestra quién tiene la mejor intuición y conquista el ranking</span>.
           </p>
 
           <div
             className="bf-anim-up bf-delay-3"
             style={{ display: 'flex', gap: 14, flexWrap: 'wrap' }}
           >
-            <Link
+            {/* <Link
               to="/login"
               data-testid="hero-cta-primary"
               className="bf-btn bf-btn-primary"
             >
               Unirme al club
               <ArrowUpRight size={16} strokeWidth={1.8} />
-            </Link>
+            </Link>*/}
             <Link
               to="/nosotros"
-              data-testid="hero-cta-secondary"
-              className="bf-btn bf-btn-outline"
+              data-testid="hero-cta-primary"
+              className="bf-btn bf-btn-primary"
             >
               Descubrir cómo funciona
             </Link>
@@ -188,7 +188,7 @@ function StatsBar() {
       style={{
         borderTop: '1px solid var(--bf-border)',
         borderBottom: '1px solid var(--bf-border)',
-        background: 'rgba(11,66,40,0.08)',
+        background: 'linear-gradient(140deg, rgba(88,28,135,0.25), rgba(88,28,135,0.05))',
       }}
     >
       <div
@@ -313,7 +313,7 @@ function ValueBento() {
           <BentoCard
             testId="feature-cards"
             span="span 4 / span 4"
-            title="Todo tipo de retos"
+            title="Todo tipo de apuestas"
             desc="Desde el clásico ganador del partido hasta apuestas de trivia, predicciones alocadas y retos personalizados."
             Icon={Sparkles}
             image={CARDS_IMG}
@@ -374,7 +374,7 @@ function BentoCard({
         justifyContent: 'space-between',
         minHeight: 200,
         background: highlight
-          ? 'linear-gradient(140deg, rgba(11,66,40,0.35), rgba(11,66,40,0.05))'
+          ? 'linear-gradient(140deg, rgba(88,28,135,0.35), rgba(88,28,135,0.05))'
           : 'var(--bf-elev)',
       }}
     >
@@ -483,7 +483,7 @@ function HowItWorks() {
           position: 'absolute',
           inset: 0,
           background:
-            'linear-gradient(180deg, #0a0d10 0%, rgba(10,13,16,0.7) 50%, #0a0d10 100%)',
+            'linear-gradient(180deg, #0d0714 0%, rgba(13,7,20,0.7) 50%, #0d0714 100%)',
         }}
       />
 
@@ -579,7 +579,7 @@ function CtaFinal() {
             padding: '80px 60px',
             textAlign: 'center',
             background:
-              'linear-gradient(140deg, rgba(11,66,40,0.5), rgba(10,13,16,0.9))',
+              'linear-gradient(180deg, #0d0714 0%, rgba(13,7,20,0.7) 50%, #0d0714 100%)',
             border: '1px solid var(--bf-border-hi)',
           }}
         >
@@ -590,9 +590,8 @@ function CtaFinal() {
               maxWidth: 780,
               margin: '0 auto 24px',
             }}
-          >
-            El primer round <em>lo pagas tú</em>.<br />
-            El resto lo decide el grupo.
+          > 
+            La conversación comienza aquí<em>. Hablemos</em>.<br />
           </h2>
           <p
             style={{
@@ -602,14 +601,14 @@ function CtaFinal() {
               margin: '0 auto 40px',
             }}
           >
-            Registra tu cuenta y abre tu primera sala en menos de un minuto.
+            En BetFriends creemos que las mejores plataformas se construyen junto a su comunidad. Queremos escucharte.
           </p>
           <Link
-            to="/login"
+            to="/contacto"
             data-testid="final-cta-button"
             className="bf-btn bf-btn-primary"
           >
-            Empezar ahora
+            Contáctanos
             <ArrowRight size={16} strokeWidth={1.8} />
           </Link>
         </div>
